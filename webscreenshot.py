@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # This file is part of webscreenshot.
@@ -142,6 +142,10 @@ fqdn_only = re.compile(r'^(?P<host>%s)%s$' % (p_domain, p_resource))
 
 ipv4_and_port = re.compile(r'^(?P<host>%s):(?P<port>%s)%s' % (p_ipv4_elementary, p_port, p_resource))
 ipv4_only = re.compile(r'^(?P<host>%s)%s$' % (p_ipv4_elementary, p_resource))
+
+# Support for IPv6 format
+ipv6_and_port = re.compile(r'^(?P<host>\[[a-fA-F0-9:]+\]):(?P<port>%s)%s' % (p_port, p_resource))
+ipv6_only = re.compile(r'^(?P<host>\[[a-fA-F0-9:]+\])%s$' % (p_resource))
 
 entry_from_csv = re.compile(r'^(?P<host>%s|%s)\s+(?P<port>\d+)$' % (p_domain, p_ipv4_elementary))
 
@@ -299,7 +303,9 @@ def entry_format_validator(line):
             'fqdn_and_port'         : fqdn_and_port, 
             'ipv4_and_port'         : ipv4_and_port, 
             'ipv4_only'             : ipv4_only, 
-            'entry_from_csv'        : entry_from_csv }
+            'entry_from_csv'        : entry_from_csv,
+            'ipv6_and_port'         : ipv6_and_port,
+            'ipv6_only'             : ipv6_only}
     
     for name, regex in tab.items():
         validator = regex.match(line)
