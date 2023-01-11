@@ -305,7 +305,7 @@ def entry_format_validator(line):
             'ipv4_and_port'         : ipv4_and_port, 
             'ipv4_only'             : ipv4_only, 
             'entry_from_csv'        : entry_from_csv,
-            'ipv6_port_and_protocol': ipv6_port_and_protocol
+            'ipv6_port_and_protocol': ipv6_port_and_protocol,
             'ipv6_and_port'         : ipv6_and_port,
             'ipv6_only'             : ipv6_only}
     
