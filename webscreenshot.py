@@ -144,6 +144,7 @@ ipv4_and_port = re.compile(r'^(?P<host>%s):(?P<port>%s)%s' % (p_ipv4_elementary,
 ipv4_only = re.compile(r'^(?P<host>%s)%s$' % (p_ipv4_elementary, p_resource))
 
 # Support for IPv6 format
+ipv6_port_and_protocol = re.compile(r'^(?P<protocol>http(?:|s))://(?P<host>\[[a-fA-F0-9:]+\]):(?P<port>%s)%s' % (p_port, p_resource))
 ipv6_and_port = re.compile(r'^(?P<host>\[[a-fA-F0-9:]+\]):(?P<port>%s)%s' % (p_port, p_resource))
 ipv6_only = re.compile(r'^(?P<host>\[[a-fA-F0-9:]+\])%s$' % (p_resource))
 
@@ -304,6 +305,7 @@ def entry_format_validator(line):
             'ipv4_and_port'         : ipv4_and_port, 
             'ipv4_only'             : ipv4_only, 
             'entry_from_csv'        : entry_from_csv,
+            'ipv6_port_and_protocol': ipv6_port_and_protocol
             'ipv6_and_port'         : ipv6_and_port,
             'ipv6_only'             : ipv6_only}
     
