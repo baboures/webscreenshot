@@ -131,7 +131,7 @@ CONTEXT_IMAGEMAGICK = 'imagemagick'
 
 # Handful patterns
 p_ipv4_elementary = r'(?:[\d]{1,3})\.(?:[\d]{1,3})\.(?:[\d]{1,3})\.(?:[\d]{1,3})'
-p_domain = r'[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]+'
+p_domain = r'[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]+'
 p_port = r'\d{0,5}'
 p_resource = r'(?:/(?P<res>.*))?'
 
